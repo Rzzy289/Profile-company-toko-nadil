@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Nadil Cell </title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
+        body{color:#333;line-height:1.6}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1100px;margin:0 auto;padding:0 20px}
+        
+        /* Nav */
+        nav{background:#1a1a2e;padding:15px 0;position:fixed;width:100%;top:0;z-index:100}
+        nav .container{display:flex;justify-content:space-between;align-items:center}
+        .logo{color:#fff;font-size:1.3rem;font-weight:800}
+        .logo span{color:#ff6b35}
+        .nav-links{display:none}
+        .nav-links a{color:#fff;margin-left:25px;font-weight:500}
+        .nav-btn{background:#ff6b35;color:#fff;padding:8px 20px;border-radius:20px;margin-left:20px}
+        
+        /* Hero */
+        .hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#ff6b35 100%);color:#fff;padding:120px 0 80px;text-align:center}
+        .hero h1{font-size:2.5rem;font-weight:800;margin-bottom:15px}
+        .hero h1 span{color:#ff6b35}
+        .hero p{color:#d1d5db;max-width:500px;margin:0 auto 30px}
+        .btn{background:#ff6b35;color:#fff;padding:12px 30px;border-radius:25px;font-weight:700;display:inline-block;margin:5px}
+        .btn-outline{border:2px solid rgba(255,255,255,.3);background:transparent}
+        
+        /* Section */
+        section{padding:60px 0}
+        .title{text-align:center;margin-bottom:40px}
+        .title h2{font-size:2rem;color:#1a1a2e}
+        .title h2 span{color:#ff6b35}
+        .title p{color:#666;margin-top:10px}
+        
+        /* About */
+        .about{background:#fff}
+        .about-grid{display:grid;gap:30px;align-items:center}
+        .about-card{background:#f9fafb;padding:20px;border-radius:15px;border-left:4px solid #ff6b35;margin-bottom:15px}
+        .about-card h3{margin-bottom:5px;color:#1a1a2e}
+        .about-card p{color:#666;font-size:.9rem}
+        .stats{display:flex;gap:15px;margin-top:20px}
+        .stat{background:#1a1a2e;color:#fff;padding:15px;border-radius:10px;text-align:center;flex:1}
+        .stat strong{display:block;font-size:1.5rem;color:#ff6b35}
+        
+        /* Products */
+        .products{background:#f9fafb}
+        .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+        .prod-card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+        .prod-icon{width:60px;height:60px;background:#fff7ed;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 15px}
+        .prod-card h3{margin-bottom:8px;color:#1a1a2e}
+        .prod-card p{color:#666;font-size:.85rem}
+        
+        /* Services */
+        .services{background:#1a1a2e;color:#fff}
+        .services .title h2{color:#fff}
+        .svc-grid{display:grid;gap:20px}
+        .svc-card{background:rgba(255,255,255,.05);padding:25px;border-radius:15px;border:1px solid rgba(255,255,255,.1)}
+        .svc-icon{width:50px;height:50px;background:#ff6b35;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:15px}
+        .svc-card h3{margin-bottom:10px}
+        .svc-card p{color:#aaa;font-size:.9rem}
+        
+        /* Contact */
+        .contact{background:linear-gradient(135deg,#f9fafb 0%,#fff7ed 100%)}
+        .contact-grid{display:grid;gap:30px}
+        .info-item{display:flex;gap:15px;background:#fff;padding:18px;border-radius:12px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+        .info-icon{width:45px;height:45px;background:#fff7ed;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+        .info-item h4{margin-bottom:3px;color:#1a1a2e}
+        .info-item p{color:#666;font-size:.9rem}
+        .form{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+        .form input,.form textarea{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:10px;margin-bottom:12px;font-size:1rem}
+        .form input:focus,.form textarea:focus{outline:none;border-color:#ff6b35}
+        .form button{width:100%;background:#ff6b35;color:#fff;padding:14px;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer}
+        
+        /* Footer */
+        footer{background:#1a1a2e;color:#fff;padding:40px 0 20px}
+        footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+        footer p{color:#aaa;font-size:.9rem}
+        .social a{color:#fff;margin-left:15px;font-size:1.2rem}
+        
+        /* Mobile */
+        .menu-btn{color:#fff;font-size:1.5rem;background:none;border:none}
+        
+        @media(min-width:768px){
+            .nav-links{display:block}
+            .menu-btn{display:none}
+            .hero{text-align:left}
+            .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+            .about-grid{grid-template-columns:1fr 1fr}
+            .prod-grid{grid-template-columns:repeat(4,1fr)}
+            .svc-grid{grid-template-columns:repeat(3,1fr)}
+            .contact-grid{grid-template-columns:1fr 1fr}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo">🏪 Toko <span>Nadil Cell</span></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#products">Produk</a>
+            <a href="#services">Layanan</a>
+            <a href="#contact" class="nav-btn">Hubungi</a>
+        </div>
+        <button class="menu-btn">☰</button>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="container">
+        <div>
+            <h1>Kebutuhan Harian<br><span>Semua Ada!</span></h1>
+            <p>Menyediakan sembako, minuman, snack, dan keperluan rumah tangga dengan kualitas terjamin sejak 2010.</p>
+            <a href="#products" class="btn">📦 Lihat Produk</a>
+            <a href="#contact" class="btn btn-outline">📞 Hubungi Kami</a>
+        </div>
+        <div style="display:none">img</div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="title">
+            <h2>Tentang <span>Kami</span></h2>
+            <p>Mengapa memilih Toko Kelontong Bahagia?</p>
+        </div>
+        <div class="about-grid">
+            <div>
+                <div class="about-card">
+                    <h3>🏆 Produk Berkualitas</h3>
+                    <p>Hanya dari supplier terpercaya dengan standar tinggi.</p>
+                </div>
+                <div class="about-card" style="border-left-color:#2ec4b6">
+                    <h3>🏷️ Harga Bersaing</h3>
+                    <p>Harga terbaik dengan promo menarik setiap minggu.</p>
+                </div>
+                <div class="about-card" style="border-left-color:#a855f7">
+                    <h3>🚚 Layanan Antar</h3>
+                    <p>Tersedia antar untuk area sekitar toko.</p>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat"><strong>14+</strong>Tahun</div>
+                <div class="stat"><strong style="color:#f7c59f">1</strong>Cabang</div>
+                <div class="stat"><strong style="color:#2ec4b6">50+</strong>Merk</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products" id="products">
+    <div class="container">
+        <div class="title">
+            <h2>Produk <span>Tersedia</span></h2>
+            <p>Jenis produk yang tersedia di toko kami</p>
+        </div>
+        <div class="prod-grid">
+            <div class="prod-card">
+                <div class="prod-icon">🌾</div>
+                <h3>Sembako</h3>
+                <p>Beras, minyak, gula, tepung</p>
+            </div>
+            <div class="prod-card">
+                <div class="prod-icon" style="background:#eff6ff">🥤</div>
+                <h3>Minuman</h3>
+                <p>Air mineral, kopi, teh, susu</p>
+            </div>
+            <div class="prod-card">
+                <div class="prod-icon" style="background:#fefce8">🍪</div>
+                <h3>Snack</h3>
+                <p>Mie, biskuit, keripik</p>
+            </div>
+            <div class="prod-card">
+                <div class="prod-icon" style="background:#f0fdf4">🧼</div>
+                <h3>Kebutuhan RT</h3>
+                <p>Sabun, detergen, tisu</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <div class="title">
+            <h2>Layanan <span>Kami</span></h2>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <div class="svc-icon">🛍️</div>
+                <h3>Belanja di Toko</h3>
+                <p>Suasana nyaman dengan pelayanan ramah.</p>
+
+
+            </div>
+            <div class="svc-card">
+                <div class="svc-icon">📦</div>
+                <h3>Pembelian Grosir</h3>
+                <p>Harga khusus untuk pembelian besar.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="title">
+            <h2>Hubungi <span>Kami</span></h2>
+            <p>Kunjungi toko atau hubungi kami</p>
+        </div>
+        <div class="contact-grid">
+            <div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div><h4>Alamat</h4><p>Jl. Bumi Pertiwi Raya No.BE 09, Cilebut Timur Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon" style="background:#f0fdfa">📞</div>
+                    <div><h4>Telepon</h4><p>0878-7331-4678</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon" style="background:#f0fdf4">💬</div>
+                    <div><h4>WhatsApp</h4><p>0878-7331-4678</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon" style="background:#faf5ff">⏰</div>
+                    <div><h4>Jam Buka</h4><p>Setiap hari 08:00 - 22:00</p></div>
+                </div>
+            </div>
+            <div class="form">
+                <h3 style="margin-bottom:15px;color:#1a1a2e">Kirim Pesan</h3>
+                <form onsubmit="event.preventDefault();alert('✅ Pesan terkirim!');this.reset()">
+                    <input type="text" placeholder="Nama" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea rows="3" placeholder="Pesan" required></textarea>
+                    <button type="submit">📨 Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p> Toko Kelontong Bahagia</p>
+        <div class="social">
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">💬</a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" style="position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#22c55e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 15px rgba(0,0,0,.3);z-index:99">💬</a>
+
+</body>
+</html>
